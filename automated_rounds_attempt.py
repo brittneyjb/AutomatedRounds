@@ -1,33 +1,54 @@
 import os
 import sys
 import time
+import random
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
+def next():
+    try:
+        sp.next_track()
+    except:
+        print("next error")
+
+def play():
+    try:
+        sp.start_playback()
+    except:
+        print('start playback error')
+
+def pause():
+    try:
+        sp.pause_playback()
+    except:
+        print('pause error')
+
+def volume(vol):
+    try:
+        sp.volume(vol)
+    except:
+        print('volume error')
+
+
+
 def dance_round(dances, playlist=None):
-    sp.volume(100)
+    volume(100)
     if playlist:
         sp.start_playback(device_id=laptop, context_uri=playlist)
     else:
-        sp.next_track()
-        try:
-            sp.start_playback()
-        except:
-            print("error")
+        next()
+        play()
     for i in range(dances):
         print("HERE")
         time.sleep(20)  #90) TESTING
         for x in range(90, 0, -5):
-            sp.volume(x)
-        sp.pause_playback()
-        time.sleep(10) # TESTING  45)
+            volume(x)
+        pause()
+        time.sleep(10) #20)  TESTING
         if i < dances - 1:
-            sp.next_track()
-            sp.volume(100)
-            try:
-                sp.start_playback()
-            except:
-                print("error")
+            volume(100)
+            next()
+            play()
     return 1
 
 
@@ -44,10 +65,24 @@ phone = '3cc0c159ac3af78dee2e28619a5f200a64d1ba01'
 brittney_made_a_rounds_playlist_id = 'spotify:playlist:74cMK3dTapj9LOLLVdpt14'
 just_another_rounds_playlist_id = 'spotify:playlist:6SjoefPMI3jqCIHHICisjg'
 mostly_stolen_from_erin_1hr_id = 'spotify:playlist:1LzWNrpynPGRyK6vGeNr8V'
+erin_round_4 = 'spotify:playlist:00E2lhBAuoh9KeClY4sJSV'
+erin_round_6 = 'spotify:playlist:4oiQuwhGMXjrYZzmuK2Ma5'
+erin_round_7 = 'spotify:playlist:5Z8VovGPWMmUwg4l7oYB8w'
 
+playlists = [
+    brittney_made_a_rounds_playlist_id,
+    just_another_rounds_playlist_id,
+    mostly_stolen_from_erin_1hr_id,
+    erin_round_4,
+    erin_round_6,
+    erin_round_7
+]
+
+current_playlist = playlists[random.randint(0, len(playlists)-1)]
+print(current_playlist)
 
 #Standard
-dance_round(5, brittney_made_a_rounds_playlist_id)
+dance_round(5, current_playlist)
 
 #Breathe Break
 input("Ready to continue to smooth?")

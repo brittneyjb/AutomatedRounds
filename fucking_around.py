@@ -15,7 +15,7 @@ laptop = '07d1cf60406513896e7d1e5ee96e445b83ccb76a'
 phone = '3cc0c159ac3af78dee2e28619a5f200a64d1ba01'
 
 #This finds the Playlist IDs
-pl = sp.user_playlists(user=brittney)
+pl = sp.user_playlists(user=erin)
 print(pl)
 for x in pl['items']:
     print(x['name'] + "\t" + x['uri']) 
