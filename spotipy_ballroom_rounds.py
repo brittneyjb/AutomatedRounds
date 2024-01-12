@@ -5,17 +5,13 @@ from spotipy.oauth2 import SpotifyOAuth
 
 # important variables
 
-user_id = "ut8uqu3o1rdhyuuu76sk545gf"  # Brittney user id
-laptop = '07d1cf60406513896e7d1e5ee96e445b83ccb76a' #Brittney laptop
-phone = '3cc0c159ac3af78dee2e28619a5f200a64d1ba01'  #Brittney phone
+user_id = # TODO: Spotify user id to go here
+laptop = # TODO: Spotify laptop device id to go here
+# can make other device id variables
 
 rounds_playlists = [
     ('Brittney Made a Rounds Playlist', 'spotify:playlist:74cMK3dTapj9LOLLVdpt14'),
     ('Just Another Rounds Playlist', 'spotify:playlist:6SjoefPMI3jqCIHHICisjg'),
-    ('Mostly Stolen from Erin 1hr', 'spotify:playlist:1LzWNrpynPGRyK6vGeNr8V'),
-    ('Erin Round 4', 'spotify:playlist:00E2lhBAuoh9KeClY4sJSV'),
-    ('Erin Round 6', 'spotify:playlist:4oiQuwhGMXjrYZzmuK2Ma5'),
-    ('Erin Round 7', 'spotify:playlist:5Z8VovGPWMmUwg4l7oYB8w')
 ]
 
 style_playlists = {     # all from Brittney's spotify
