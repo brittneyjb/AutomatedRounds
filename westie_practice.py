@@ -55,32 +55,14 @@ def fadeout():
     for x in range(90, 0, -5):
         volume(x)
 
-#TODO: make randomization of songs work and edit this
-# This will return both the next song uri to be played, and the index to be added to songs_played
-def next_random_song(playlist, songs_played):
-    return -1;
 
 
-def playlist_in_order(playlist, in_order, song_len, wait_len):
+def practice_playlist(pl, shuffle, song_len, wait_len):
     volume(100)
-    sp.start_playback(device_id=laptop, context_uri=playlist)
-    for i in range(50): #arbitrary number for now
-        print("HERE")
-        time.sleep(song_len) # 25) TESTING
-        fadeout()
-        pause()
-        time.sleep(wait_len) # 10) TESTING
-        if i < 49:
-            volume(100)
-            next()
-            play()
-    return 1
-
-#TODO: make randomization of songs work and edit this
-def playlist_random_order(playlist, song_len, wait_len):
-    volume(0)
-    sp.start_playback(device_id=laptop, context_uri=playlist)
-
+    sp.shuffle(shuffle, laptop)
+    #currently getting weird error, have playlist you want up before starting
+    #sp.start_playback(device_id=laptop, context_uri=pl) 
+    play()
     for i in range(50): #arbitrary number for now
         print("HERE")
         time.sleep(song_len) # 25) TESTING
@@ -102,13 +84,10 @@ song_length = int(input("How long do you want the song to go for? (in seconds, e
 wait_length = int(input('How long should I wait to play the next song? (also in seconds)\n'))
 
 playlist = ''
-if pl_choice.contains('b'):
-    playlist =  bb_blues
+if pl_choice == 'blues':
+    pl =  bb_blues
 else:
-    playlist = bb_wcs
+    pl = bb_wcs
 
-if in_order:
-    playlist_in_order(playlist, song_length, wait_length)
-else:
-    print('playing songs randomly from a playlist isn\'t implemented yet, sorry')
+practice_playlist(pl, in_order, song_length, wait_length)
 
